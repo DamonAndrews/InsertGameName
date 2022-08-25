@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { Link } from 'react-router-dom';
+
 // import { useQuery } from '@apollo/client';
 
 // import ScoreList from '../components/ScoreList';
@@ -11,13 +14,19 @@ const Home = () => {
 //   const thoughts = data?.scores || [];
 
   return (
-    <div>
     <main>
-      <div>
-        Hello World
-      </div>
-    </main>
-    </div>
+    <h1>Welcome to our game!</h1>
+  <Link to="/game">
+  <button>
+    Start New Game
+  </button>
+</Link>
+<Link to="/scores">
+  <button>
+    Leaderboard
+  </button>
+</Link>
+</main>
   );
 };
 
