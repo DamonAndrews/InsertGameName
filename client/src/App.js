@@ -3,7 +3,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 // import Login from './pages/Login';
-// import Scores from './pages/Scores';
+import Game from './pages/Game';
+import Scores from './pages/Scores';
+import GameOver from './pages/GameOver';
+
 
 function App() {
   return (
@@ -15,12 +18,15 @@ function App() {
             path = '/'
             exact
             element ={<Home />}/>
-          {/* <Route
-            path = "/Login"
-            element ={<Login />}/>
             <Route
-            path="/Scores"
-            element={<Scores />}/> */}
+            path = "/game"
+            element ={<Game />}/>
+            <Route
+            path="/scores"
+            element={<Scores />}/>
+            <Route
+            path="/gameover"
+            element={<GameOver />}/> 
         </Routes>
       {/* <Footer /> */}
     </Router>
