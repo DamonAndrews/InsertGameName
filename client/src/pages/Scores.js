@@ -7,12 +7,9 @@ import { useQuery } from '@apollo/client';
 import { QUERY_SCORES } from '../utils/queries';
 
 const Scores = () => {
-  // Use `useParams()` to retrieve value of the route parameter `:profileId`
-  // const { thoughtId } = useParams();
 
   const { loading, data } = useQuery(QUERY_SCORES, {
-    // pass URL parameter
-    // variables: { thoughtId: thoughtId },
+
   });
 
   const score = data?.score || {};

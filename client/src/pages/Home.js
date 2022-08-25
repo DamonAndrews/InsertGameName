@@ -1,20 +1,18 @@
 import React from 'react';
 // import { useQuery } from '@apollo/client';
 
-// import ScoreList from '../components/ScoreList';
-// import ThoughtForm from '../components/ThoughtForm';
+// import ScoreList from '../components/Scores';
 
-// import { QUERY_THOUGHTS } from '../utils/queries';
+// import { QUERY_SCORES } from '../utils/queries';
 
 const Home = () => {
-//   const { loading, data } = useQuery(QUERY_SCORES);
-//   const thoughts = data?.scores || [];
+  // const { loading, data } = useQuery(QUERY_SCORES);
 
   return (
     <div>
     <main>
       <div>
-        Hello World
+        Hello test this is pretty cool right?
       </div>
     </main>
     </div>

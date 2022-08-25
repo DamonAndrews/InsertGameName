@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
-// import Login from './pages/Login';
+import Login from './pages/Login';
 // import Scores from './pages/Scores';
 
 function App() {
@@ -15,10 +15,10 @@ function App() {
             path = '/'
             exact
             element ={<Home />}/>
-          {/* <Route
+          <Route
             path = "/Login"
             element ={<Login />}/>
-            <Route
+            {/* <Route
             path="/Scores"
             element={<Scores />}/> */}
         </Routes>
