@@ -48,10 +48,7 @@ const resolvers = {
 
       return { token, user };
     },
-<<<<<<< HEAD
-=======
     
->>>>>>> 1e6856d35f99a7b22871d1e5f2d392285272106e
     addScore: async (parent, { userScore }, context) => {
       if (context.user) {
         const score = await Score.create({
