@@ -2,11 +2,17 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
-// import Login from './pages/Login';
-import Maze from './pages/Game';
 import Scores from './pages/Scores';
 import GameOver from './pages/GameOver';
 import Game from './pages/Game'
+import Login from './pages/Login'
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
+
 
 function App() {
   return (
@@ -15,7 +21,7 @@ function App() {
       {/* <Header /> */}
         <Routes>    
           <Route
-            path = '/'
+            path = '/home'
             exact
             element ={<Home />}/>
             <Route
@@ -27,6 +33,9 @@ function App() {
             <Route
             path="/gameover"
             element={<GameOver />}/> 
+            <Route
+            path="/"
+            element={<Login />}/>
         </Routes>
       {/* <Footer /> */}
     </Router>

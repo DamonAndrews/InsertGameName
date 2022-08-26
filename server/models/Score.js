@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const scoreSchema = new Schema({
-  scoreNumber: {
+  userScore: {
     type: Number,
     required: true,
     // required: 'You need to leave a thought!',
@@ -9,7 +9,7 @@ const scoreSchema = new Schema({
     // maxlength: 280,
     // trim: true,
   },
-  scorePlayer: {
+  userName: {
     type: String,
     required: true,
     trim: true,

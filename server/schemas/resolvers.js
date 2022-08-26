@@ -48,11 +48,11 @@ const resolvers = {
 
       return { token, user };
     },
-    addScore: async (parent, { scoreNumber }, context) => {
+    addScore: async (parent, { userScore }, context) => {
       if (context.user) {
         const score = await Score.create({
-          scoreNumber,
-          scorePlayer: context.user.username,
+          userScore,
+          userName: context.user.username,
         });
 
         await User.findOneAndUpdate(
