@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Maze } from '../utils/maze/maze'
 
 class Boundary {
   static width = 40
@@ -21,7 +22,7 @@ class Player {
     this.c = c
     this.position = position
     this.velocity = velocity
-    this.radius = 12
+    this.radius = 8
   }
 
   draw({ x, y }) {
@@ -53,25 +54,26 @@ class Player {
   }
 }
 
-const map = [
-  ['-', '-', '-', '-', '-', '-', '-'],
-  ['-', ' ', ' ', ' ', ' ', ' ', '-'],
-  ['-', ' ', '-', ' ', '-', ' ', '-'],
-  ['-', ' ', ' ', ' ', ' ', ' ', '-'],
-  ['-', ' ', '-', ' ', '-', ' ', '-'],
-  ['-', ' ', ' ', ' ', ' ', ' ', '-'],
-  ['-', '-', '-', '-', '-', '-', '-']
-]
+let map;
+// const map = [
+//   ['-', '-', '-', '-', '-', '-', '-'],
+//   ['-', ' ', ' ', ' ', ' ', ' ', '-'],
+//   ['-', ' ', '-', ' ', '-', ' ', '-'],
+//   ['-', ' ', ' ', ' ', ' ', ' ', '-'],
+//   ['-', ' ', '-', ' ', '-', ' ', '-'],
+//   ['-', ' ', ' ', ' ', ' ', ' ', '-'],
+//   ['-', '-', '-', '-', '-', '-', '-']
+// ]
 
-export default function Maze({ parentRef, ...props }) {
+export default function Game({ parentRef, ...props }) {
   const [c, setC] = useState({
     value: null
   });
   const [player, setPlayer] = useState(null);
   const [boundaries, setBoundaries] = useState([]);
   const [prevPos, setPrevPos] = useState({
-    x: Boundary.width + Boundary.width / 2,
-    y: Boundary.height + Boundary.height / 2
+    x: 25 + 25 / 2,
+    y: 25 + 25 / 2
   })
   const [keys, setKeys] = useState({
     w: {
@@ -97,10 +99,42 @@ export default function Maze({ parentRef, ...props }) {
 
     setC({ value: context });
 
+    
+
+    function determineBoundaries() {
+
+    const NewMaze = new Maze (500, 20, 20, context, canvas);
+    map = NewMaze.setup(context,canvas);
+    NewMaze.draw(canvas, context);
+
+
+
+    //   const boundariesTemp = [];
+    //  .forEach((row, i) => {
+    //     row.forEach((symbol, j) => {
+    //       switch (symbol) {
+    //         case "":
+    //           const boundary = new Boundary({
+    //             position: {
+    //               x: 25 * j,
+    //               y: 25 * i
+    //             }
+    //           }, context)
+    //           boundariesTemp.push(
+    //             boundary
+    //           )
+    //           boundary.draw()
+    //           break
+    //         default: break;
+    //       }
+    //     })
+    //   })
+      setBoundaries(map.grid)
+    }
     const playerInit = new Player({
       position: {
-        x: Boundary.width + Boundary.width / 2,
-        y: Boundary.height + Boundary.height / 2
+        x: 25 + 25 / 2,
+        y: 25 + 25 / 2
       },
       velocity: {
         x: 0,
@@ -109,34 +143,9 @@ export default function Maze({ parentRef, ...props }) {
     }, context)
     setPlayer(playerInit)
     playerInit.draw({
-      x: Boundary.width + Boundary.width / 2,
-      y: Boundary.height + Boundary.height / 2
+      x: 25 + 25 / 2,
+      y: 25 + 25 / 2
     })
-
-    function determineBoundaries() {
-
-      const boundariesTemp = [];
-      map.forEach((row, i) => {
-        row.forEach((symbol, j) => {
-          switch (symbol) {
-            case '-':
-              const boundary = new Boundary({
-                position: {
-                  x: Boundary.width * j,
-                  y: Boundary.height * i
-                }
-              }, context)
-              boundariesTemp.push(
-                boundary
-              )
-              boundary.draw()
-              break
-            default: break;
-          }
-        })
-      })
-      setBoundaries(boundariesTemp)
-    }
 
     document.addEventListener("keyup", () => {
       setLastKey(null)
@@ -161,7 +170,7 @@ export default function Maze({ parentRef, ...props }) {
 
   function circleCollidesWithRectangle({ circle, rectangle }) {
     return (
-      circle.position.y - circle.radius + circle.velocity.y <= rectangle.position.y + rectangle.height && circle.position.x + circle.radius + circle.velocity.x >= rectangle.position.x && circle.position.y + circle.radius + circle.velocity.y >= rectangle.position.y && circle.position.x - circle.radius + circle.velocity.x <= rectangle.position.x + rectangle.width
+      circle.position.y - circle.radius + circle.velocity.y <= rectangle.rowNum + 25 && circle.position.x + circle.radius + circle.velocity.x >= rectangle.colNum && circle.position.y + circle.radius + circle.velocity.y >= rectangle.rowNum && circle.position.x - circle.radius + circle.velocity.x <= rectangle.colNum + 25
     )
   }
 
@@ -281,9 +290,9 @@ export default function Maze({ parentRef, ...props }) {
       requestAnimationFrame(() => goX(5, "d"));
     }
 
-    boundaries.forEach((boundary) => {
-      boundary.draw()
-    })
+    // boundaries.forEach((boundary) => {
+    //   boundary.draw()
+    // })
     player?.update(prevPos)
   }, [
     lastKey, 
@@ -298,7 +307,7 @@ export default function Maze({ parentRef, ...props }) {
 
   return (
     <div>
-      <canvas height={Boundary.height * map.length} width={Boundary.width * map[0].length} ref={canvasRef} {...props} />
+      <canvas style={{background:'black'}}height={500} width={500} ref={canvasRef} {...props} />
     </div >
   )
 }

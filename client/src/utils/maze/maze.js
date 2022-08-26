@@ -1,17 +1,20 @@
-let maze = document.querySelector(".maze");
-let ctx = maze.getContext("2d");
+
+// let maze = document.querySelector(".maze");
+// let ctx = maze.getContext("2d");
 let generationComplete = false;
 
 let current;
-let goal;
+// let goal;
 
-class Maze {
-  constructor(size, rows, columns) {
+export class Maze {
+  constructor(size, rows, columns, ctx, maze) {
     this.size = size;
     this.columns = columns;
     this.rows = rows;
     this.grid = [];
     this.stack = [];
+    this.maze = maze;
+    this.ctx = ctx;
   }
 
   setup() {
@@ -25,19 +28,20 @@ class Maze {
     }
     current = this.grid[0][0];
     this.grid[this.rows - 1][this.columns - 1].goal = true;
+    return this;
   }
 
-  draw() {
-    maze.width = this.size;
-    maze.height = this.size;
-    maze.style.background = "black";
+  draw(maze, ctx) {
+    // maze.width = this.size;
+    // maze.height = this.size;
+    // maze.style.background = "black";
 
     current.visited = true;
 
     for (let r = 0; r < this.rows; r++) {
       for (let c = 0; c < this.columns; c++) {
         let grid = this.grid;
-        grid[r][c].show(this.size, this.rows, this.columns);
+        grid[r][c].show(this.size, this.rows, this.columns, ctx);
       }
     }
 
@@ -48,7 +52,7 @@ class Maze {
 
       this.stack.push(current);
 
-      current.highlight(this.columns);
+      current.highlight(this.columns, ctx);
 
       current.removeWalls(current, next);
 
@@ -56,7 +60,7 @@ class Maze {
     } else if (this.stack.length > 0) {
       let cell = this.stack.pop();
       current = cell;
-      current.highlight(this.columns);
+      current.highlight(this.columns, ctx);
     }
 
     if (this.stack.length === 0) {
@@ -111,35 +115,35 @@ class Cell {
     }
   }
 
-  drawTopWall(x, y, size, columns, rows) {
-    ctx.beginPath();
+  drawTopWall(x, y, size, columns, rows, ctx) {
+   ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x + size / columns, y);
     ctx.stroke();
   }
 
-  drawRightWall(x, y, size, columns, rows) {
+  drawRightWall(x, y, size, columns, rows, ctx) {
     ctx.beginPath();
     ctx.moveTo(x + size / columns, y);
     ctx.lineTo(x + size / columns, y + size / rows);
     ctx.stroke();
   }
 
-  drawBottomWall(x, y, size, columns, rows) {
+  drawBottomWall(x, y, size, columns, rows, ctx) {
     ctx.beginPath();
     ctx.moveTo(x, y + size / rows);
     ctx.lineTo(x + size / columns, y + size / rows);
     ctx.stroke();
   }
 
-  drawLeftWall(x, y, size, columns, rows) {
+  drawLeftWall(x, y, size, columns, rows, ctx) {
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x, y + size / rows);
     ctx.stroke();
   }
 
-  highlight(columns) {
+  highlight(columns, ctx) {
     let x = (this.colNum * this.parentSize) / columns + 1;
     let y = (this.rowNum * this.parentSize) / columns + 1;
     ctx.fillStyle = "purple";
@@ -172,29 +176,31 @@ class Cell {
       cell2.walls.topWall = false;
     }
   }
-  show(size, rows, columns) {
+  show(size, rows, columns, ctx) {
     let x = (this.colNum * size) / columns;
     let y = (this.rowNum * size) / rows;
     ctx.strokeStyle = "#ffffff";
     ctx.fillStyle = "black";
     ctx.lineWidth = 2;
-    if (this.walls.topWall) this.drawTopWall(x, y, size, columns, rows);
-    if (this.walls.rightWall) this.drawRightWall(x, y, size, columns, rows);
-    if (this.walls.bottomWall) this.drawBottomWall(x, y, size, columns, rows);
-    if (this.walls.leftWall) this.drawLeftWall(x, y, size, columns, rows);
+    if (this.walls.topWall) this.drawTopWall(x, y, size, columns, rows, ctx);
+    if (this.walls.rightWall) this.drawRightWall(x, y, size, columns, rows, ctx);
+    if (this.walls.bottomWall) this.drawBottomWall(x, y, size, columns, rows, ctx);
+    if (this.walls.leftWall) this.drawLeftWall(x, y, size, columns, rows, ctx);
     if (this.visited) {
-      ctx.fillRect(x + 1, y + 1, size / columns - 2, size / rows - 2);
+    ctx.fillRect(x + 1, y + 1, size / columns - 2, size / rows - 2);
     }
     if (this.goal) {
-      ctx.fillStyle = "rgb(83, 247, 43)";
-      ctx.fillRect(x + 1, y + 1, size / columns - 2, size / rows - 2);
+     ctx.fillStyle = "rgb(83, 247, 43)";
+     ctx.fillRect(x + 1, y + 1, size / columns - 2, size / rows - 2);
     }
   }
 }
 
-let newMaze = new Maze(500, 20, 20);
 
-newMaze.setup();
-newMaze.draw();
 
-// export default newMaze.draw
+// export function mapGenerator() {
+//   let newMaze = new Maze(500, 20, 20);
+//   newMaze.setup();
+//   newMaze.draw();
+// }
+
