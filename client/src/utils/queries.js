@@ -25,7 +25,7 @@ export const QUERY_SCORES = gql`
 
 export const QUERY_SINGLE_SCORE = gql`
   query getSingleScore($scoreId: ID!) {
-    thought(scoreId: $scoreId) {
+    score (scoreId: $scoreId) {
       _id
       userScore
       userName

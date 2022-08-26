@@ -5,7 +5,9 @@ const Footer = () => {
   const location = useLocation();
   const navigate = useNavigate();
   return (
-    <footer className="w-100 mt-auto bg-secondary p-4">
+    <nav class="navbar fixed-bottom bg-primary">
+    <div class="container-fluid" id="footerLinks">
+    <footer className="w-100 mt-auto bg-secondary p-4" >
       <div className="container text-center mb-5">
         {location.pathname !== '/' && (
           <button
@@ -15,7 +17,7 @@ const Footer = () => {
             &larr; Go Back
           </button>
         )}
-        <h4>
+        <h4  id="headerTitle">
           Made with{' '}
           <span
             className="emoji"
@@ -29,6 +31,8 @@ const Footer = () => {
         </h4>
       </div>
     </footer>
+    </div>
+    </nav>
   );
 };
 

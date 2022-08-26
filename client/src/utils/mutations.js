@@ -29,9 +29,13 @@ export const ADD_SCORE = gql`
     addScore(userScore: $userScore, userName: $userName) {
       _id
       userScore
+<<<<<<< HEAD
      player {
       _id
       scores
+=======
+      userName
+>>>>>>> 1e6856d35f99a7b22871d1e5f2d392285272106e
      }
       }
     }

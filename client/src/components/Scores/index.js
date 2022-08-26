@@ -1,4 +1,13 @@
+import { useMutation, useQuery } from '@apollo/client';
 import React from 'react';
+
+// import { ADD_SCORE } from `../../utils/mutations`;
+
+// import { QUERY_SCORES } from `../../utils/queries`;
+
+// const { loading, data } = useQuery(QUERY_SCORES);
+
+// const { loading, data } = useMutation(ADD_SCORE);
 
 const ScoreList = ({ scores = [] }) => {
   if (!scores.length) {

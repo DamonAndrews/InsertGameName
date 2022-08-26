@@ -6,7 +6,6 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    scores: [Score]!
   }
 
   type Score {
@@ -24,7 +23,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    scores(username: String): [Score]
+    scores: [Score]
     score(scoreId: ID!): Score
     me: User
   }

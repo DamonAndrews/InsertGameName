@@ -4,11 +4,12 @@ const scoreSchema = new Schema({
   userScore: {
     type: Number,
     required: true,
-    // required: 'You need to leave a thought!',
-    // minlength: 1,
-    // maxlength: 280,
-    // trim: true,
+
   },
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1e6856d35f99a7b22871d1e5f2d392285272106e
   userName: {
     type: String,
     required: true,

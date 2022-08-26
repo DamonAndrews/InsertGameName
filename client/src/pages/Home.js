@@ -2,16 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-// import { useQuery } from '@apollo/client';
-
-// import ScoreList from '../components/ScoreList';
-// import ThoughtForm from '../components/ThoughtForm';
-
-// import { QUERY_THOUGHTS } from '../utils/queries';
-
 const Home = () => {
-//   const { loading, data } = useQuery(QUERY_SCORES);
-//   const thoughts = data?.scores || [];
 
   return (
     <main>

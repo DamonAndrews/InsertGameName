@@ -4,8 +4,8 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return User.find().populate('scores');
+    // users: async () => {
+    //   return User.find().populate('scores');
     },
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate('scores');
@@ -13,16 +13,16 @@ const resolvers = {
     scores: async (parent, { username }) => {
       const params = username ? { username } : {};
       return Score.find(params).sort({ createdAt: -1 });
-    },
-    score: async (parent, { scoreId }) => {
-      return Score.findOne({ _id: scoreId });
-    },
-    me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate('scores');
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
+    // },
+    // score: async (parent, { scoreId }) => {
+    //   return Score.findOne({ _id: scoreId });
+    // },
+    // me: async (parent, args, context) => {
+    //   if (context.user) {
+    //     return User.findOne({ _id: context.user._id }).populate('scores');
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
   },
 
   Mutation: {
@@ -48,6 +48,10 @@ const resolvers = {
 
       return { token, user };
     },
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 1e6856d35f99a7b22871d1e5f2d392285272106e
     addScore: async (parent, { userScore }, context) => {
       if (context.user) {
         const score = await Score.create({
