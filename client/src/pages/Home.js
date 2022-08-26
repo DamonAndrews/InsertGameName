@@ -1,21 +1,23 @@
 import React from 'react';
-// import { useQuery } from '@apollo/client';
 
-// import ScoreList from '../components/Scores';
-
-// import { QUERY_SCORES } from '../utils/queries';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  // const { loading, data } = useQuery(QUERY_SCORES);
 
   return (
-    <div>
     <main>
-      <div>
-        Hello test this is pretty cool right?
-      </div>
-    </main>
-    </div>
+    <h1>Welcome to our game!</h1>
+  <Link to="/game">
+  <button>
+    Start New Game
+  </button>
+</Link>
+<Link to="/scores">
+  <button>
+    Leaderboard
+  </button>
+</Link>
+</main>
   );
 };
 

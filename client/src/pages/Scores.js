@@ -1,41 +1,39 @@
 import React from 'react';
+// import { useQuery } from '@apollo/client';
 
-// Import the `useParams()` hook
-// import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
-import { QUERY_SCORES } from '../utils/queries';
+// import { QUERY_SCORES } from `../../utils/queries`;
 
 const Scores = () => {
+  
+  // const { loading, data } = useQuery(QUERY_SCORES);
+  // const scores = data?.scores || [];
 
-  const { loading, data } = useQuery(QUERY_SCORES, {
-
-  });
-
-  const score = data?.score || {};
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
   return (
-    <div className="my-3">
-      <h3 className="card-header bg-dark text-light p-2 m-0">
-        {score.scorePlayer} <br />
-      </h3>
-      <div className="bg-light py-4">
-        <blockquote
-          className="p-4"
-          style={{
-            fontSize: '1.5rem',
-            fontStyle: 'italic',
-            border: '2px dotted #1a1a1a',
-            lineHeight: '1.5',
-          }}
-        >
-          {score.scoreNumber}
-        </blockquote>
-      </div>
-    </div>
+    <main>
+    <h1>Top High Scores:</h1>
+      {/* <div className="flex-row my-4">
+        {scores &&
+         scores.map((score) => (
+          <div key={scores._id} className="col-12 mb-3 pb-3">
+            <div className="p-3 bg-dark text-light">
+                <h2 className="card-header">
+                  {scores.userName} scored{' '}
+                </h2>
+                <p className="card-body">{scores.userScore}</p>
+            </div>
+          </div>
+          ))}
+      </div> */}
+  <Link to="/">
+    <button>Return to Start</button>
+  </Link>
+
+  </main>
   );
 };
 

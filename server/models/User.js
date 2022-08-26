@@ -19,12 +19,6 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-  scores: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Score',
-    },
-  ],
 });
 
 userSchema.pre('save', async function (next) {

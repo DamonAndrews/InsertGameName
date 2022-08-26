@@ -8,13 +8,13 @@
 
 //     await User.create(userSeeds);
 
-//     for (let i = 0; i < thoughtSeeds.length; i++) {
-//       const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
+//     for (let i = 0; i < scoreSeeds.length; i++) {
+//       const { _id, scoreAuthor } = await score.create(scoreSeeds[i]);
 //       const user = await User.findOneAndUpdate(
-//         { username: thoughtAuthor },
+//         { username: scoreAuthor },
 //         {
 //           $addToSet: {
-//             thoughts: _id,
+//             scores: _id,
 //           },
 //         }
 //       );
