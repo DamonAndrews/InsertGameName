@@ -8,7 +8,7 @@ export const QUERY_USER = gql`
       email
       scores {
         _id
-        scoreNumber
+        userScore
       }
     }
   }
@@ -18,17 +18,17 @@ export const QUERY_SCORES = gql`
   query score {
     scores {
       _id
-      scoreNumber
-      scorePlayer
+      userScore
+      userName
     }
   }`;
 
 export const QUERY_SINGLE_SCORE = gql`
   query getSingleScore($scoreId: ID!) {
-    thought(scoreId: $scoreId) {
+    score (scoreId: $scoreId) {
       _id
-      scoreNumber
-      scorePlayer
+      userScore
+      userName
       }
     }
   }

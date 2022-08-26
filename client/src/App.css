@@ -37,3 +37,16 @@
   }
 }
 
+#homePageButtons {
+  display: flex;
+  justify-content: space-around;
+}
+
+#headerTitle {
+  display: flex;
+  justify-content: center;
+}
+#flexBox {
+  display: flex;
+  justify-content: center;
+}

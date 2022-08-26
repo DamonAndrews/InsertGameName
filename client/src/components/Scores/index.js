@@ -1,4 +1,13 @@
+import { useMutation, useQuery } from '@apollo/client';
 import React from 'react';
+
+// import { ADD_SCORE } from `../../utils/mutations`;
+
+// import { QUERY_SCORES } from `../../utils/queries`;
+
+// const { loading, data } = useQuery(QUERY_SCORES);
+
+// const { loading, data } = useMutation(ADD_SCORE);
 
 const ScoreList = ({ scores = [] }) => {
   if (!scores.length) {
@@ -19,9 +28,9 @@ const ScoreList = ({ scores = [] }) => {
             <div key={score._id} className="col-12 mb-3 pb-3">
             <div className="p-3 bg-dark text-light">
                 <h5 className="card-header">
-                  {score.scorePlayer} scored{' '}
+                  {score.userName} scored{' '}
                 </h5>
-                <p className="card-body">{score.scoreNumber}</p>
+                <p className="card-body">{score.userScore}</p>
               </div>
             </div>
           ))}

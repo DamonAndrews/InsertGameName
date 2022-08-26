@@ -6,13 +6,12 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    scores: [Score]!
   }
 
   type Score {
     _id: ID
-    scoreNumber: String
-    scorePlayer: String
+    userScore: String
+    userName: String
 
   }
 
@@ -24,7 +23,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    scores(username: String): [Score]
+    scores: [Score]
     score(scoreId: ID!): Score
     me: User
   }
@@ -32,7 +31,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addScore(scoreNumber: Int!, scorePlayer: String!): Score
+    addScore(userScore: Int!, userName: String!): Score
   }
 `;
 
