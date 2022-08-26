@@ -16,8 +16,6 @@ const client = new ApolloClient({
 
 // import Login from './pages/Login';
 import Maze from './pages/Game';
-import Scores from './pages/Scores';
-import GameOver from './pages/GameOver';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
