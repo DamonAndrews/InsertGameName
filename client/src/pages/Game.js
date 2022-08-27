@@ -313,9 +313,11 @@ export default function Game({ parentRef, ...props }) {
 
 
   return (
+    <div id="flexBox">
     <div>
       <canvas style={{background:'black'}}height={500} width={500} ref={canvasRef} {...props} />
     </div >
+    </div>
   )
 }
 
