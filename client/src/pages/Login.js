@@ -85,7 +85,9 @@ function Login(props) {
           </div>
           <br></br>
           <div id ="flexBox">
+          <Link to="/game">
           <button type="submit">LOGIN</button>
+          </Link>
           </div>
           </form>
           </div>
@@ -129,7 +131,9 @@ function Login(props) {
           </div>
           <br></br>
           <div id="flexBox">
+          <Link to="/game">
           <button type="submit">CREATE PLAYER</button>
+          </Link>
           </div>
           </form>
           </div>          

@@ -46,7 +46,7 @@ function App() {
           <Route
             path = "/"
             exact
-            element ={<Home />}/>
+            element ={<Login />}/>
             <Route
             path = "/game"
             element ={<Maze />}/>
