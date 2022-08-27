@@ -57,6 +57,9 @@ function App() {
             path="/gameover"
             element={<GameOver />}/> 
             <Route
+            path="/home"
+            element={<Home />}/> 
+            <Route
             path="/login"
             element={<Login />}/> 
 
