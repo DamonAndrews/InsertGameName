@@ -11,12 +11,6 @@ class Boundary {
     this.height = 40
   }
 
-<<<<<<< HEAD
-const Game = () => {
-  //   const { loading, data } = useQuery(QUERY_SCORES);
-  //   const scores = data?.scores || [];
-  
-=======
   draw() {
     this.c.fillStyle = 'white'
     this.c.fillRect(this.position.x, this.position.y, this.width, this.height)
@@ -175,7 +169,6 @@ export default function Game({ parentRef, ...props }) {
   }, [])
 
   function circleCollidesWithRectangle({ circle, rectangle }) {
->>>>>>> 54840933b58640bcaf8d3e906aa50fb5a6c83987
     return (
       circle.position.y - circle.radius + circle.velocity.y <= rectangle.rowNum + 25 && circle.position.x + circle.radius + circle.velocity.x >= rectangle.colNum && circle.position.y + circle.radius + circle.velocity.y >= rectangle.rowNum && circle.position.x - circle.radius + circle.velocity.x <= rectangle.colNum + 25
     )

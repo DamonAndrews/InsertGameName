@@ -2,29 +2,51 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
-<<<<<<< HEAD
 import Login from './pages/Login';
-import Game from './pages/Game';
-=======
-// import Login from './pages/Login';
+// import Game from './pages/Game';
 import Maze from './pages/Game';
->>>>>>> 54840933b58640bcaf8d3e906aa50fb5a6c83987
 import Scores from './pages/Scores';
 import GameOver from './pages/GameOver';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+
+import { setContext } from '@apollo/client/link/context';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 
 function App() {
   return (
-    <>
+    <ApolloProvider client={client}>
     <Router>
       <Header />
         <Routes>    
           <Route
-            path = '/'
+            path = "/"
             exact
-            element ={<Login />}/>
+            element ={<Home />}/>
             <Route
             path = "/game"
             element ={<Maze />}/>
@@ -34,13 +56,14 @@ function App() {
             <Route
             path="/gameover"
             element={<GameOver />}/> 
-            {/* <Route
+            <Route
             path="/login"
-            element={<Login />}/>  */}
+            element={<Login />}/> 
+
         </Routes>
       <Footer />
     </Router>
-    </>
+    </ApolloProvider>
   );
 }
 
