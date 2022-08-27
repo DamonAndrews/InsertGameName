@@ -4,16 +4,16 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    // users: async () => {
-    //   return User.find().populate('scores');
+    users: async () => {
+      return User.find()
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('scores');
+      return User.findOne({ username })
     },
     scores: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Score.find(params).sort({ createdAt: -1 });
-    // },
+      return Score.find(params).sort({ userScore: -1 });
+    },
     // score: async (parent, { scoreId }) => {
     //   return Score.findOne({ _id: scoreId });
     // },
@@ -31,11 +31,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    login: async (parent, { username, password }) => {
+      const user = await User.findOne({ username });
 
       if (!user) {
-        throw new AuthenticationError('No user found with this email address');
+        throw new AuthenticationError('No Ball Runners around here with that name?');
       }
 
       const correctPw = await user.isCorrectPassword(password);
