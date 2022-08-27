@@ -50,3 +50,18 @@
   display: flex;
   justify-content: center;
 }
+
+#startButton {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  font-family:'sans-serif','Courier New', Courier, monospace;
+  font-size: 25px;
+}
+#leaderBoardButton {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  font-family:'sans-serif','Courier New', Courier, monospace;
+  font-size: 25px;
+}

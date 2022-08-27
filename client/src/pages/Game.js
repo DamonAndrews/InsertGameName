@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Maze } from '../utils/maze/maze'
+import Auth from '../utils/auth';
+import { Link, Navigate } from 'react-router-dom';
 
 class Boundary {
   static width = 40
@@ -311,6 +313,9 @@ export default function Game({ parentRef, ...props }) {
     player?.velocity.y
   ])
 
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/login" />;
+  };
 
   return (
     <div id="flexBox">

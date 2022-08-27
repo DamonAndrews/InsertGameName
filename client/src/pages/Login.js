@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import {useMutation} from '@apollo/client';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { Navigate} from 'react-router-dom';
+
 import { LOGIN_USER, ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
@@ -55,6 +57,10 @@ function Login(props) {
     });
   };
 
+  if (Auth.loggedIn()) {
+    return <Navigate to="/home" />;
+  };
+
     return (
     <div id="flexBox">
     <main>
@@ -85,9 +91,9 @@ function Login(props) {
           </div>
           <br></br>
           <div id ="flexBox">
-          <Link to="/game">
+          <div>
           <button type="submit">LOGIN</button>
-          </Link>
+        </div>
           </div>
           </form>
           </div>
@@ -131,9 +137,7 @@ function Login(props) {
           </div>
           <br></br>
           <div id="flexBox">
-          <Link to="/game">
           <button type="submit">CREATE PLAYER</button>
-          </Link>
           </div>
           </form>
           </div>          
