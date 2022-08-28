@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
+import Maze from './pages/Game';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 import Scores from './pages/Scores';
 import GameOver from './pages/GameOver';
@@ -15,9 +18,6 @@ const client = new ApolloClient({
 });
 
 // import Login from './pages/Login';
-import Maze from './pages/Game';
-import Header from './components/Header';
-import Footer from './components/Footer';
 
 
 
