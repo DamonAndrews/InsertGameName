@@ -1,7 +1,7 @@
 import React from 'react';
 // import { useQuery } from '@apollo/client';
-
-import { Link } from 'react-router-dom';
+import Auth from '../utils/auth';
+import { Link, Navigate } from 'react-router-dom';
 
 // import { QUERY_SCORES } from `../../utils/queries`;
 
@@ -13,7 +13,13 @@ const Scores = () => {
   // if (loading) {
   //   return <div>Loading...</div>;
   // }
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/login" />;
+  };
+
+
   return (
+    <div id="flexBox">
     <main>
     <h1>Top High Scores:</h1>
       {/* <div className="flex-row my-4">
@@ -34,6 +40,7 @@ const Scores = () => {
   </Link>
 
   </main>
+  </div>
   );
 };
 

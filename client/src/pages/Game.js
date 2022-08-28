@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { Maze } from '../utils/maze/maze'
+import Auth from '../utils/auth';
+import { Link, Navigate } from 'react-router-dom';
 
 
 class Boundary {
@@ -13,6 +15,16 @@ class Boundary {
     this.height = 40
   }
 
+<<<<<<< HEAD
+=======
+
+// const Game = () => {
+  //   const { loading, data } = useQuery(QUERY_SCORES);
+  //   const scores = data?.scores || [];
+  
+
+
+>>>>>>> ade3ff7df8159a80348e6196b12c2c081742e33d
   draw() {
     this.c.fillStyle = 'white'
     this.c.fillRect(this.position.x, this.position.y, this.width, this.height)
@@ -306,11 +318,16 @@ export default function Game({ parentRef, ...props }) {
     player?.velocity.y
   ])
 
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/login" />;
+  };
 
   return (
+    <div id="flexBox">
     <div>
       <canvas style={{background:'black'}}height={500} width={500} ref={canvasRef} {...props} />
     </div >
+    </div>
   )
 }
 

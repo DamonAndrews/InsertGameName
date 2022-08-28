@@ -11,8 +11,7 @@ export const QUERY_USER = gql`
         userScore
       }
     }
-  }
-`;
+  }`;
 
 export const QUERY_SCORES = gql`
   query score {
@@ -30,6 +29,10 @@ export const QUERY_SINGLE_SCORE = gql`
       userScore
       userName
       }
+<<<<<<< HEAD
     }
   
 `;
+=======
+    }`;
+>>>>>>> ade3ff7df8159a80348e6196b12c2c081742e33d
