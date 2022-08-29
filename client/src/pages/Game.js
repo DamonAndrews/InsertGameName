@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Maze } from '../utils/maze/maze'
+import { Cell, Maze } from '../utils/maze/maze'
 import Auth from '../utils/auth';
 import { Link, Navigate } from 'react-router-dom';
 
@@ -117,7 +117,8 @@ export default function Game({ parentRef, ...props }) {
     const NewMaze = new Maze (500, 20, 20, context, canvas);
     map = NewMaze.setup(context,canvas);
     NewMaze.draw(canvas, context);
-
+    
+    const newCell = new Cell()
 
 
     //   const boundariesTemp = [];
