@@ -74,7 +74,7 @@ export class Maze {
   }
 }
 
-class Cell {
+export class Cell {
   constructor(rowNum, colNum, parentGrid, parentSize) {
     this.rowNum = rowNum;
     this.colNum = colNum;
@@ -195,12 +195,4 @@ class Cell {
     }
   }
 }
-
-
-
-// export function mapGenerator() {
-//   let newMaze = new Maze(500, 20, 20);
-//   newMaze.setup();
-//   newMaze.draw();
-// }
 
