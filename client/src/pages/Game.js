@@ -15,8 +15,6 @@ class Boundary {
     this.height = 40
   }
 
-<<<<<<< HEAD
-=======
 
 // const Game = () => {
   //   const { loading, data } = useQuery(QUERY_SCORES);
@@ -24,7 +22,6 @@ class Boundary {
   
 
 
->>>>>>> ade3ff7df8159a80348e6196b12c2c081742e33d
   draw() {
     this.c.fillStyle = 'white'
     this.c.fillRect(this.position.x, this.position.y, this.width, this.height)

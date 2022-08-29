@@ -2,15 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
-<<<<<<< HEAD
-import Maze from './pages/Game';
-=======
 import Login from './pages/Login';
-// import Game from './pages/Game';
-import Maze from './pages/Game';
+import Game from './pages/Game';
 import Scores from './pages/Scores';
 import GameOver from './pages/GameOver';
->>>>>>> ade3ff7df8159a80348e6196b12c2c081742e33d
 import Header from './components/Header';
 import Footer from './components/Footer';
 import {
@@ -40,16 +35,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-import Scores from './pages/Scores';
-import GameOver from './pages/GameOver';
-import Game from './pages/Game'
-import Login from './pages/Login'
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-
-const client = new ApolloClient({
-  uri: '/graphql',
-  cache: new InMemoryCache(),
-});
 
 // import Login from './pages/Login';
 
@@ -62,11 +47,7 @@ function App() {
       <Header />
         <Routes>    
           <Route
-<<<<<<< HEAD
-            path = '/home'
-=======
             path = "/"
->>>>>>> ade3ff7df8159a80348e6196b12c2c081742e33d
             exact
             element ={<Login />}/>
             <Route
