@@ -1,9 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Link, Navigate } from 'react-router-dom';
-
 import Auth from '../../utils/auth';
-
 
 const Footer = () => {
   const location = useLocation();
@@ -12,10 +10,8 @@ const Footer = () => {
     event.preventDefault();
     Auth.logout();
   };
-  return (
-    // <nav className="navbar sticky-bottom bg-primary">
-    <div className="container-fluid navbar sticky-bottom bg-primary" id="footerLinks">
-    <footer className="w-100 mt-auto bg-secondary p-4" >
+  return ( 
+    <footer className="w-100 mt-auto bg-success p-4 text-dark container-fluid" id="footerLinks">   
       <div className="container text-center mb-5">
         {location.pathname !== '/' && (
           <button
@@ -37,22 +33,11 @@ const Footer = () => {
             </>          
           )}           
         </div>
-        <h4  id="headerTitle">
-          Made with{' '}
-          <span
-            className="emoji"
-            role="img"
-            aria-label="heart"
-            aria-hidden="false"
-          >
-            ❤️
-          </span>{' '}
-          by Group 1
+        <h4  id="footerTitle">
+            
         </h4>
       </div>
     </footer>
-    </div>
-    // </nav>
   );
 };
 

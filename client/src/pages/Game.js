@@ -6,6 +6,7 @@ import { Navigate } from 'react-router-dom';
 
 
 class Boundary {
+
   static width = 40
   static height = 40
   constructor({ position }, c) {
@@ -80,6 +81,7 @@ export default function Game({ parentRef, ...props }) {
   const [c, setC] = useState({
     value: null
   });
+
   const [player, setPlayer] = useState(null);
   const [boundaries, setBoundaries] = useState([]);
   const [prevPos, setPrevPos] = useState({
