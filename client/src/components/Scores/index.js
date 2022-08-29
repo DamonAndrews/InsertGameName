@@ -1,5 +1,6 @@
 // import { useMutation, useQuery } from '@apollo/client';
 import React from 'react';
+import { Link, Navigate } from 'react-router-dom';
 
 // import { ADD_SCORE } from `../../utils/mutations`;
 
@@ -10,6 +11,11 @@ import React from 'react';
 // const { loading, data } = useMutation(ADD_SCORE);
 
 const ScoreList = ({ scores = [] }) => {
+
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/login" />;
+  };
+
   if (!scores.length) {
     return <h3>No Scores Yet</h3>;
   }

@@ -7,14 +7,14 @@ import Auth from '../utils/auth';
 // };
 
 import { Link, Navigate } from 'react-router-dom';
-import maze from '../components/maze.png'
+import maze from '../components/maze.png';
 
 
 const Home = () => {
 
-  // if (!Auth.loggedIn()) {
-  //   return <Navigate to="/login" />;
-  // };
+  if (!Auth.loggedIn()) {
+    return <Navigate to="/login" />;
+  };
 
 
   return (
