@@ -46,6 +46,12 @@
   display: flex;
   justify-content: center;
 }
+
+#footerTitle {
+  display: flex;
+  justify-content: center;
+}
+
 #flexBox {
   display: flex;
   justify-content: center;
@@ -64,4 +70,8 @@
   font-weight: bold;
   font-family:'sans-serif','Courier New', Courier, monospace;
   font-size: 25px;
+}
+
+.ballRunner {
+  max-height: 40px;
 }
