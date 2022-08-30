@@ -92,7 +92,7 @@ function Login(props) {
           <br></br>
           <div id ="flexBox">
           <div>
-          <button type="submit">LOGIN</button>
+          <button type="submit" id="startButton" class="btn btn-lg btn-light m-2">LOGIN</button>
         </div>
           </div>
           </form>
@@ -136,7 +136,7 @@ function Login(props) {
           </div>
           <br></br>
           <div id="flexBox">
-          <button type="submit">CREATE PLAYER</button>
+          <button type="submit" id="startButton" class="btn btn-lg btn-light m-2">CREATE PLAYER</button>
           </div>
           </form>
           <br></br>

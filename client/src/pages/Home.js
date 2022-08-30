@@ -13,7 +13,8 @@ const Home = () => {
   return (
     <div id="flexBox">
     <main>
-    <h1 id="flexBox">Welcome to our game!</h1>
+    <h1 id="flexBox">Hello Ball Runner!</h1><br></br><br></br><p id="flexBox">The goal is to make it to the end of the maze before time expires.</p>
+    <p id="flexBox"> Controls: "W" for up, "S" for down, "A" for left and "D" for right!</p>
     <br></br>
     <div id="flexBox">
       <Link to="/game">
