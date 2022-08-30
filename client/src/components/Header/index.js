@@ -22,12 +22,12 @@ const Header = () => {
             Runner</h1>
               <p className="m-0"  id="headerTitle">Good luck escaping the madness of the maze</p>
         </div>
-      <div id="flexBox">
+      <div id="flexBox" >
         {Auth.loggedIn() ? (     
           <>          
-           <Link to="/scores">
-        <button id="leaderBoardButton">Leaderboard</button>
-      </Link>
+           {/* <Link to="/scores">
+        <button id="leaderBoardButton" class="btn btn-lg btn-light m-2">Leaderboard</button>
+      </Link> */}
           </>
           ) : (
           <>           

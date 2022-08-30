@@ -7,7 +7,8 @@ import { QUERY_SCORES } from '../utils/queries';
 const Scores = () => {
 
   const { loading, data } = useQuery(QUERY_SCORES);
-  const scores = [{_id:"630a5a4b5d1bbb86bff9edbf", userName:"JeffTheWizz", userScore:90},{_id:"630a5a4b5d1bbb86bff9edbf", userName:"DamonTheScrumMaster", userScore:80}]
+  const scores = [{_id:"630a5a4b5d1bbb86bff9edbf", userName:"Jeff", userScore:100},{_id:"630a5a4b5d1bbb86bff9edbf", userName:"Damon", userScore:100}, {_id:"630a5a4b5d1bbb86bff9edbf", userName:"Jenny", userScore:100},
+  {_id:"630a5a4b5d1bbb86bff9edbf", userName:"Stephen", userScore:100},{_id:"630a5a4b5d1bbb86bff9edbf", userName:"Corey", userScore:100}, {_id:"630a5a4b5d1bbb86bff9edbf", userName:"Serena", userScore:100}]
 
   if (!Auth.loggedIn()) {
     return <Navigate to="/login" />;
@@ -18,9 +19,9 @@ const Scores = () => {
   }
 
   return (
-    <div id="flexBox">
+  <div id="flexBox">
     <main>
-    <h1>Top High Scores:</h1>
+    <h1 id="flexBox">Leaderboard:</h1>
       <div className="flex-row my-4">
         {scores &&
          scores.map((scores) => (
@@ -33,7 +34,12 @@ const Scores = () => {
           </div>
           ))}
       </div>
-  </main>
+      <div>
+      <Link to="/game">
+        <button  id="leaderBoardButton" class="btn btn-lg btn-light m-2" >Start New Game</button>
+      </Link>
+      </div>
+    </main>
   </div>
   );
 };

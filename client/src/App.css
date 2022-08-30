@@ -79,4 +79,9 @@
 .mazeRunner {
   max-height: 80px;
 }
+/* 
+.startButton {
+  display: flex;
+  justify-content: center;
+} */
 

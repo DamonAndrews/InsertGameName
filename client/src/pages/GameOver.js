@@ -9,10 +9,10 @@ const GameOver = () => {
       <h2 id="flexBox">Final Score:</h2>
     <div id="flexBox">
   <Link to="/game">
-    <button>Play Again</button>
+    <button  id="leaderBoardButton" class="btn btn-lg btn-light m-2" >Play Again</button>
   </Link>
   <Link to="/scores">
-    <button>Leaderboard</button>
+    <button id="leaderBoardButton" class="btn btn-lg btn-light m-2" >Leaderboard</button>
   </Link>
     <br></br>
     <br></br>
