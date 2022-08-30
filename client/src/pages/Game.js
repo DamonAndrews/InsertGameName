@@ -1,17 +1,11 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { Cell, Maze } from '../utils/maze/maze'
+
 import Auth from '../utils/auth';
 import { Navigate, useNavigate } from 'react-router-dom';
 import GameOver from './GameOver';
-import { useTimer } from 'react-timer-hook';
 import Timer from '../components/Timer/index'
-// function gameOver() {
-//   setTimeout(GameOver,30000)
-// }
-
-
-
 
 class Boundary {
 
@@ -24,19 +18,11 @@ class Boundary {
     this.height = 40
   }
 
-
-// const Game = () => {
-  //   const { loading, data } = useQuery(QUERY_SCORES);
-  //   const scores = data?.scores || [];
-  
-
-
   draw() {
     this.c.fillStyle = 'white'
     this.c.fillRect(this.position.x, this.position.y, this.width, this.height)
   }
 }
-
 
 class Player {
   constructor({ position, velocity }, c) {
@@ -87,7 +73,7 @@ let map;
 // ]
 
 export default function Game({ parentRef, ...props }) {
-
+  
   const navigate = useNavigate()
   const [c, setC] = useState({
     value: null
@@ -331,16 +317,14 @@ export default function Game({ parentRef, ...props }) {
 
   if (!Auth.loggedIn()) {
     return <Navigate to="/login" />;
-  };
-
-  
-
+  }
+ 
   const respondToTimeout = () => {
     console.log("redirect to new page")
     navigate("/gameover")
   }
   return (
-    
+  <div>
     <div id="flexBox">
     <div>
       <div id='timer'>Time Remaining:</div>
@@ -349,7 +333,8 @@ export default function Game({ parentRef, ...props }) {
       />
     </div >
     </div>
+    </div>
   )
-}
+};
 
 
