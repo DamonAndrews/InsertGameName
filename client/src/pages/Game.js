@@ -1,7 +1,11 @@
+import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { Maze } from '../utils/maze/maze'
+import { Cell, Maze } from '../utils/maze/maze'
+
 import Auth from '../utils/auth';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
+import GameOver from './GameOver';
+import Timer from '../components/Timer/index'
 
 class Boundary {
 
@@ -13,13 +17,6 @@ class Boundary {
     this.width = 40
     this.height = 40
   }
-
-
-// const Game = () => {
-  //   const { loading, data } = useQuery(QUERY_SCORES);
-  //   const scores = data?.scores || [];
-  
-
 
   draw() {
     this.c.fillStyle = 'white'
@@ -76,10 +73,12 @@ let map;
 // ]
 
 export default function Game({ parentRef, ...props }) {
+  
+  const navigate = useNavigate()
   const [c, setC] = useState({
     value: null
   });
-
+  const [timer, setTimer] = useState(30)
   const [player, setPlayer] = useState(null);
   const [boundaries, setBoundaries] = useState([]);
   const [prevPos, setPrevPos] = useState({
@@ -117,7 +116,8 @@ export default function Game({ parentRef, ...props }) {
     const NewMaze = new Maze (500, 20, 20, context, canvas);
     map = NewMaze.setup(context,canvas);
     NewMaze.draw(canvas, context);
-
+    
+    const newCell = new Cell()
 
 
     //   const boundariesTemp = [];
@@ -317,16 +317,24 @@ export default function Game({ parentRef, ...props }) {
 
   if (!Auth.loggedIn()) {
     return <Navigate to="/login" />;
-  };
-
+  }
+ 
+  const respondToTimeout = () => {
+    console.log("redirect to new page")
+    navigate("/gameover")
+  }
   return (
+  <div>
     <div id="flexBox">
     <div>
-      <canvas style={{background:'black'}}height={500} width={500} ref={canvasRef} {...props} />
+      <div id='timer'>Time Remaining:</div>
+      <Timer timer={timer} setTimer={setTimer} respondToTimeout={respondToTimeout} />
+      <canvas style={{background:'black'}}height={500} width={500} ref={canvasRef} {...props} 
+      />
     </div >
     </div>
+    </div>
   )
-}
-
+};
 
 

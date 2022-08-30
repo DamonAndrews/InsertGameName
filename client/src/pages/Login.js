@@ -98,7 +98,6 @@ function Login(props) {
           </form>
           </div>
         <br></br>
-        <br></br>
      <div className="container my-1">
       <h2 id="headerTitle">Create Player</h2>
       <form onSubmit={userSignup}>
@@ -106,7 +105,7 @@ function Login(props) {
           <label htmlFor="email">Username:</label>
           <br></br>
           <input
-            placeholder="username"
+            placeholder="FutureBaller23"
             name="username"
             type="username"
             id="username"
@@ -117,7 +116,7 @@ function Login(props) {
           <label htmlFor="email">Email:</label>
           <br></br>
           <input
-            placeholder="youremail@test.com"
+            placeholder="ballrunner@host.com"
             name="email"
             type="email"
             id="email"
@@ -140,6 +139,8 @@ function Login(props) {
           <button type="submit">CREATE PLAYER</button>
           </div>
           </form>
+          <br></br>
+          <br></br>
           </div>          
           </main> 
           </div>

@@ -6,7 +6,6 @@ const scoreSchema = new Schema({
     required: true,
 
   },
-
   userName: {
     type: String,
     required: true,
