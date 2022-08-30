@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Home from './pages/Home';
 import Login from './pages/Login';
-// import Game from './pages/Game';
-import Maze from './pages/Game';
+import Game from './pages/Game';
 import Scores from './pages/Scores';
 import GameOver from './pages/GameOver';
 import Header from './components/Header';
@@ -37,6 +36,10 @@ const client = new ApolloClient({
 });
 
 
+// import Login from './pages/Login';
+
+
+
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -49,7 +52,7 @@ function App() {
             element ={<Login />}/>
             <Route
             path = "/game"
-            element ={<Maze />}/>
+            element ={<Game />}/>
             <Route
             path="/scores"
             element={<Scores />}/>
