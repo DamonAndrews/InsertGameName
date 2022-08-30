@@ -1,7 +1,29 @@
+import React from 'react';
+import {useTimer} from 'react-timer-hook';
 import { useState, useEffect, useRef } from 'react';
-import { Maze } from '../utils/maze/maze'
+import { Maze } from '../utils/maze/maze';
 import Auth from '../utils/auth';
 import { Link, Navigate } from 'react-router-dom';
+
+// function gameOver() {
+//  if (secondsLeft === 0) {
+//   return <Navigate to="/gameover" />;
+//   }
+//  };
+// function MyTimer({ expiryTimestamp }) {
+//   const {
+//     seconds,
+//     minutes,
+//     hours,
+//     days,
+//     isRunning,
+//     start,
+//     pause,
+//     resume,
+//     restart,
+//   } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
+
+
 
 class Boundary {
 
@@ -320,13 +342,21 @@ export default function Game({ parentRef, ...props }) {
   };
 
   return (
+  <div>
     <div id="flexBox">
+  
     <div>
+    <div>Timer:</div>
+    <div id="timer">
+);
+    </div>
+    <br></br>
       <canvas style={{background:'black'}}height={500} width={500} ref={canvasRef} {...props} />
     </div >
     </div>
+    </div>
   )
-}
+};
 
 
 

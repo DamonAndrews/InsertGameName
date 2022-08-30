@@ -13,12 +13,12 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-success navbar text-light mb-4 py-3 flex-row align-center">
+    <header className=" navbar text-light mb-4 py-3 flex-row align-center" style={{ backgroundColor: '#0a4275' }}>
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <h1 className="m-0" id="headerTitle" >
             Ball
-            <img src={maze} class="ballRunner"></img>
+            <img src={ball} class="ballRunner"></img>
             Runner</h1>
               <p className="m-0"  id="headerTitle">Good luck escaping the madness of the maze</p>
         </div>
@@ -26,8 +26,8 @@ const Header = () => {
         {Auth.loggedIn() ? (     
           <>          
            <Link to="/scores">
-           <button className="btn btn-lg btn-light m-2" >SCORES</button>
-          </Link>
+        <button id="leaderBoardButton">Leaderboard</button>
+      </Link>
           </>
           ) : (
           <>           
@@ -35,7 +35,7 @@ const Header = () => {
         )}           
       </div>
         <div>
-          <img src={ball} class="ballRunner"></img>
+          <img src={maze} class="mazeRunner"></img>
         </div>  
       </div>
     </header>

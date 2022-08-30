@@ -15,4 +15,10 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
-  }}
+  },
+  "dependencies": {
+    "mdb-react-ui-kit": "^4.2.0",
+    "mdb-ui-kit": "^5.0.0",
+    "react-timer-hook": "^3.0.5"
+  }
+}
