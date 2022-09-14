@@ -1,6 +1,8 @@
-# InteractiveMERNProject
+![BallRunner](https://user-images.githubusercontent.com/107002411/190237151-7af7dfe2-af32-4671-a79b-68e795ae2d9e.jpg)
 
-## Project title: Ball runner
+
+
+BallRunner
 
 ## Project Description
 Created a little maze game where you have to get rid of all the lines in the grid. 
